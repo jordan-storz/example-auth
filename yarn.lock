@@ -239,6 +239,10 @@ bcrypt@^1.0.2:
     nan "2.5.0"
     node-pre-gyp "0.6.32"
 
+bcryptjs@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/bcryptjs/-/bcryptjs-2.4.0.tgz#fb7f4a0b133854503fe1b2da3f25db834cf0e678"
+
 beeper@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/beeper/-/beeper-1.1.1.tgz#e6d5ea8c5dad001304a70b22638447f69cb2f809"
