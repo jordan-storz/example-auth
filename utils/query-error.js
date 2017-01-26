@@ -14,13 +14,12 @@ const messenger = (error) => {
 }
 
 module.exports = R.curry(function(res, error) {
-  return res.json(messenger(error));
+  return res.status(500).json(messenger(error));
 });
 
 
 function formatUserError(error) {
   let message = '';
-  console.log(error.column);
   if (error.column === 'password') {
     message = 'Password is required';
   } else if (error.constraint === 'user_email_unique') {
@@ -28,5 +27,11 @@ function formatUserError(error) {
   }
   return {
     error: message
+  };
+}
+
+function formatMarkerError(error) {
+  return {
+    error: 'Could not make marker'
   };
 }

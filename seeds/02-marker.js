@@ -3,7 +3,7 @@ exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('marker').del()
     .then(() => {
-      return knex.raw('ALTER SEQUENCE marker_id_seq RESTART WITH 3')
+      return knex.raw('ALTER SEQUENCE marker_id_seq RESTART WITH 7')
     })
     .then(function () {
       return Promise.all([
