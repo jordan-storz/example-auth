@@ -6,16 +6,6 @@ const R = require('ramda');
 const password = require('../utils/password');
 const authenticate = require('../utils/authenticate');
 
-
-router.post('/signup', function(req, res) {
-  query('user')
-    .add(req.body)
-    .then(() => {
-      res.json({msg: 'success'})
-    })
-    .catch(queryError(res));
-})
-
 router.post('/login', function(req, res) {
   query('user')
     .by('email', req.body.email)
