@@ -26,6 +26,18 @@ module.exports = (function() {
       return db(this.rel).where(field, val).first();
     }
 
+    delete(id) {
+      return db(this.rel).where('id', id).del();
+    }
+
+    update(id, info) {
+      return db(this.rel)
+        .where('id', id)
+        .returning(this._infoToArr(info))
+        .update(info)
+        .then(R.head);
+    }
+
     add(info) {
       if (!info.password) {
         delete info.password;
@@ -34,6 +46,10 @@ module.exports = (function() {
         info.password = password.hash(info.password);
         return db(this.rel).insert(info);
       }
+    }
+
+    _infoToArr(info) {
+      return R.keys(R.dissoc('password', info));
     }
   }
 
