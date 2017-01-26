@@ -1,0 +1,1 @@
+define({  "name": "User API",  "version": "1.0.0",  "description": "ResourceName JSON API",  "sampleUrl": false,  "defaultVersion": "0.0.0",  "apidoc": "0.3.0",  "generator": {    "name": "apidoc",    "time": "2017-01-26T17:29:08.160Z",    "url": "http://apidocjs.com",    "version": "0.17.5"  }});

@@ -2,9 +2,18 @@ const express = require('express');
 const router = express.Router();
 const query = require('../utils/query');
 const queryError = require('../utils/query-error');
-const patchSuccess = require('../utils/patch-success');
+const successMessage = require('../utils/success-message');
 const datify = require('../utils/datify');
 
+
+/**
+ * @api {get} /markers Request Marker information
+ * @apiName GetMarkers
+ * @apiGroup Marker
+ *
+ *
+ * @apiSuccess {Array} marker Marker info.
+ */
 router.get('/', function(req, res) {
   query('marker')
     .all()
@@ -14,6 +23,15 @@ router.get('/', function(req, res) {
     .catch(queryError(res))
 });
 
+/**
+ * @api {post} /markers Creates marker from given information.
+ * @apiName PostMarker
+ * @apiGroup Marker
+ *
+ * @apiSuccess {String} color of marker
+ * @apiSuccess {String} quality of marker
+ * @apiSuccess {String} user_id of marker
+ */
 router.post('/', function(req, res) {
   query('marker')
     .add(req.body)

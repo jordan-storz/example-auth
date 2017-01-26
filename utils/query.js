@@ -19,15 +19,22 @@ module.exports = (function() {
     }
 
     one(id) {
-      return db(this.rel).where('id', id).first();
+      return db(this.rel)
+        .where('id', id)
+        .first()
+        .then(R.dissoc('password'));
     }
 
     by(field, val) {
-      return db(this.rel).where(field, val).first();
+      return db(this.rel)
+        .where(field, val)
+        .first();
     }
 
     delete(id) {
-      return db(this.rel).where('id', id).del();
+      return db(this.rel)
+        .where('id', id)
+        .del();
     }
 
     update(id, info) {
@@ -41,10 +48,14 @@ module.exports = (function() {
     add(info) {
       if (!info.password) {
         delete info.password;
-        return db(this.rel).insert(info);
+        return db(this.rel)
+          .returning(this._infoToArr(info))
+          .insert(info);
       } else {
         info.password = password.hash(info.password);
-        return db(this.rel).insert(info);
+        return db(this.rel)
+          .returning(this._infoToArr(info))
+          .insert(info);
       }
     }
 
