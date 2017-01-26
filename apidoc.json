@@ -1,5 +1,5 @@
 {
-  "name": "User API",
-  "version": "1.0.0",
-  "description": "ResourceName JSON API"
+  "name": "User and Marker API",
+  "version": "0.1.0",
+  "description": "Users and Markers JSON API"
 }
